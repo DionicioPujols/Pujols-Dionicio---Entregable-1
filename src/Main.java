@@ -1,9 +1,7 @@
 import java.util.*;
 
-
 public class Main {
     public static Scanner sc = new Scanner(System.in);
-   
     public static void main(String[] args){
         int opciones = 0;
 
@@ -23,10 +21,10 @@ public class Main {
             System.out.println("|| 10. Salir                           ||");
             System.out.println("|| ----------------------------------- ||\n");
 
-            System.out.println("INGRESE UN NUMERO DEL MENU INDICADO: ");
+            System.out.print("INGRESE UN NUMERO DEL MENU INDICADO: ");
             if(sc.hasNextInt()){
                 opciones = sc.nextInt();
-                sc.nextLine(); // Limpiar búfer
+                sc.nextLine(); 
 
                 switch (opciones) {
                     case 1:
@@ -39,10 +37,10 @@ public class Main {
                         SistemaAcademico.registrarMateria(); 
                         break;
                     case 4:
-
+                        SistemaAcademico.AsignarMateria();
                         break;
                     case 5: 
-
+                        SistemaAcademico.RegistrarCalif();
                         break;
                     case 6:
                         SistemaAcademico.mostrarEstudiantes(); 
@@ -54,6 +52,7 @@ public class Main {
                         SistemaAcademico.mostrarProfesores();
                         break;
                     case 9: 
+
                         break;
                     case 10: 
                         System.out.println("Saliendo del sistema...");

@@ -1,15 +1,25 @@
 public class materia {
-    private int codigo;
+    private String codigo;
     private String nombreMateria;
     private int credito;
+    private double calif;
 
-    public materia(int codigo, String nombreMateria, int credito) {
+    //Constructores de la clase
+    public materia(){
+        setCodigo("");
+        setNombreMateria("");
+        setCredito(0);
+        
+    }
+    
+    public materia(String codigo, String nombreMateria, int credito) {
         this.codigo = codigo;
         this.nombreMateria = nombreMateria;
         this.credito = credito;
     }
 
-    public int getCodigo(){ 
+    //Getters
+    public String getCodigo(){ 
         return codigo; 
     }
     public String getNombreMateria(){ 
@@ -18,8 +28,12 @@ public class materia {
     public int getCredito(){ 
         return credito; 
     }
-    
-    public void setCodigo(int codigo){ 
+    public double getCalificacion(){
+        return calif;
+    }
+
+    //Setters
+    public void setCodigo(String codigo){ 
         this.codigo = codigo; 
     }
     public void setNombreMateria(String nombreMateria){ 
@@ -27,6 +41,9 @@ public class materia {
     }
     public void setCredito(int credito){ 
         this.credito = credito; 
+    }
+    public void setCalificaciones(double calif){
+        this.calif = calif;
     }
 
     public String obtenerInformacion() {

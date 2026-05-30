@@ -2,9 +2,9 @@ import java.util.*;
 
 public class SistemaAcademico {
     static Scanner sc = new Scanner(System.in);
-    private static final ArrayList<Estudiantes> listaEstudiantes = new ArrayList<>();
-    private static final ArrayList<Profesores> listaProfesores = new ArrayList<>();
-    private static final ArrayList<materia> listaMaterias = new ArrayList<>();
+    private static ArrayList<Estudiantes> listaEstudiantes = new ArrayList<>();
+    private static ArrayList<Profesores> listaProfesores = new ArrayList<>();
+    private static ArrayList<materia> listaMaterias = new ArrayList<>();
 
     // 1. Registrar estudiante
     public static void registrarEstudiante() {
@@ -66,7 +66,7 @@ public class SistemaAcademico {
     public static void registrarMateria() {
         System.out.println("--- REGISTRAR NUEVA MATERIA ---\n");
         System.out.print("Codigo: ");
-        int codigo = sc.nextInt();
+        String codigo = sc.nextLine();
         sc.nextLine(); 
         System.out.print("Nombre de la materia: ");
         String NombreMateria = sc.nextLine();
@@ -80,11 +80,91 @@ public class SistemaAcademico {
         System.out.println("\nLA MATERIA FUE AGREGADA CON ÉXITO...\n");
     }
 
+    // 4. Asignar materia
+    public static void AsignarMateria(){
+        System.out.println("\n|| =================================== ||");
+        System.out.println("||    ASIGNAR MATERIAS A ESTUDIANTES   ||");
+        System.out.println("|| =================================== ||\n");
+        System.out.print("Ingrese la matricula del estudiante: ");
+        String Matricula = sc.nextLine();
+
+        Estudiantes estudiantes = null; 
+        for(Estudiantes est : listaEstudiantes){
+            if(est.getMatricula().equalsIgnoreCase(Matricula)){
+
+                estudiantes = est;
+                break;
+            }
+        }
+
+        if(estudiantes == null){
+            System.out.println("ESTUDIANTE NO ENCOTNRADO.");
+            return;
+        }
+
+        System.out.print("Ingrese el codigo de la materia: ");
+        String codigo = sc.nextLine();
+
+        materia Materias = null;
+        for(materia mat : listaMaterias){
+            if(mat.getCodigo().equalsIgnoreCase(codigo)){
+                Materias = mat;
+                break;
+            }
+        }
+
+        if(Materias == null){
+            System.out.println("MATERIA NO ENCONTRADA.");
+            return;
+        }
+
+        estudiantes.getMaterias().add(Materias);
+        System.out.println("MATERIA ASIGNADA.");
+    } 
+
+    //5. Registrar calificaciones
+
+    public static void RegistrarCalif(){
+        System.out.println("\n|| =================================== ||");
+        System.out.println("||       REGISTRAR CALIFICACIONES      ||");
+        System.out.println("|| =================================== ||\n");
+        System.out.print("Ingrese la matricula del estuddiante: ");
+        String Matricula = sc.nextLine();
+
+        Estudiantes estudiantes = null;
+        for(Estudiantes est : listaEstudiantes){
+            if(est.getMatricula().equalsIgnoreCase(Matricula)){
+                estudiantes = est;
+            }
+        }
+
+        if(estudiantes == null){
+            System.out.println("ESTUDIANTE NO ENCOTNRADO...");
+            return;
+        }
+
+        System.out.print("Ingrese el codigo de la Asignartura / materia: ");
+        String codigo = sc.nextLine();
+        for(materia mat : estudiantes.getMaterias()){
+            if(mat.getCodigo().equalsIgnoreCase(codigo)){
+                System.out.print("Ingrese la calificacion del estudiante: ");
+                double calif = sc.nextDouble();
+                sc.nextLine();
+
+                mat.setCalificaciones(calif);
+
+                System.out.println("SU CALIFICACION FUE REGISTRADA CON EXITO! :)...");
+                return;
+            }
+        }
+        System.out.println("SU CALIFICACION NO FUE REGISTRADA CON EXITO! :(...");
+    }
+
     // 6. Mostrar estudiantes
     public static void mostrarEstudiantes() {
         System.out.println("\n--- LISTA DE ESTUDIANTES ---");
         if (listaEstudiantes.isEmpty()) {
-            System.out.println("No hay estudiantes registrados.");
+            System.out.println("NO HAY ESTUDIANTES REGISTRADOS.");
             return;
         }
         for (Estudiantes e : listaEstudiantes) {
@@ -96,7 +176,7 @@ public class SistemaAcademico {
     public static void mostrarMaterias() {
         System.out.println("\n--- LISTA DE MATERIAS ---");
         if (listaMaterias.isEmpty()) {
-            System.out.println("No hay materias registradas.");
+            System.out.println("NO HAY MATERIAS REGISTRADAS.");
             return;
         }
         for (materia m : listaMaterias) { 
@@ -108,7 +188,7 @@ public class SistemaAcademico {
     public static void mostrarProfesores() {
         System.out.println("\n--- LISTA DE PROFESORES ---");
         if (listaProfesores.isEmpty()) {
-            System.out.println("No hay profesores registrados.");
+            System.out.println("NO HAY PROFESORES REGISTRADOS.");
             return;
         }
         for (Profesores p : listaProfesores) {
