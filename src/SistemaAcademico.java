@@ -100,7 +100,7 @@ public class SistemaAcademico {
             return;
         }
         for (materia m : listaMaterias) { 
-            System.out.println("Codigo: " + m.getCodigo() + " | Nombre: " + m.getNombreMateria() + " | Creditos: " + m.getCredito());
+            System.out.println(m.obtenerInformacion());
         }
     }
 

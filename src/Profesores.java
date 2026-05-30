@@ -2,7 +2,14 @@ public class Profesores extends Persona {
     private int codigo;
     private String especialidad;
 
-    //Constructor de la clase
+    //Constructores de la clase
+
+    public Profesores(){
+        super("", "");
+        setCodigo(0);
+        setEspecialidad("");
+    }
+
     public Profesores(int codigo, String nombre, String apellido, String especialidad) {
         super(nombre, apellido);
         this.codigo = codigo;

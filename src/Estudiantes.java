@@ -5,15 +5,27 @@ public class Estudiantes extends Persona{
     private int Edad;
     private String Carrera;
     private String FechaInscripcion;
-    ArrayList<materia> materias = new ArrayList<>();
+    private ArrayList <materia> Materias;
 
-    //Constructor de la clase;
+    //Constructores de la clase;
+
+    public Estudiantes(){
+        super("", "");
+        setMatricula("");
+        setEdad(0);
+        setCarrera("");
+        setFechaInscripcion("");
+        
+        Materias = new ArrayList<>();
+    }
+
     public Estudiantes(String Matricula, String nombre, String apellido, int Edad, String Carrera, String FechaInscripcion){
         super(nombre, apellido);
-        this.Matricula = Matricula;
-        this.Edad = Edad;
-        this.Carrera = Carrera;
-        this.FechaInscripcion = FechaInscripcion;
+        setMatricula(Matricula);
+        setEdad(Edad);
+        setCarrera(Carrera);
+        setFechaInscripcion(FechaInscripcion);
+        Materias = new ArrayList<>();
     }
 
     //Getters;
@@ -28,6 +40,9 @@ public class Estudiantes extends Persona{
     }
     public String getFechaInscripcion(){
         return FechaInscripcion;
+    }
+    public ArrayList<materia> getMaterias() {
+        return Materias;
     }
     
     //Setters;
@@ -45,6 +60,6 @@ public class Estudiantes extends Persona{
     }
 
     public String MostrarInformacion(){
-        return "| Matricula: " + Matricula + "| Nombre: " + getNombre() + "| Apellido:  " + getApellido() + "| Edad: " + Edad + "| Carrera: " + Carrera;    
+        return "\n| Matricula: " + getMatricula() + "\n| Nombre: " + getNombre() + "\n| Apellido:  " + getApellido() + "\n| Edad: " + getEdad() + "\n| Carrera: " + getCarrera() + "\n| Fecha de Inscripcion: " + getFechaInscripcion();    
     }
 }

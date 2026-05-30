@@ -2,7 +2,13 @@ public class Persona {
     private String nombre;
     private String apellido;
 
-    //Constructor de la clase;
+    //Constructores de la clase;
+
+    public Persona() {
+        setNombre("");
+        setApellido("");
+    }
+
     public Persona(String nombre, String apellido){
         this.nombre = nombre;
         this.apellido = apellido;

@@ -28,4 +28,8 @@ public class materia {
     public void setCredito(int credito){ 
         this.credito = credito; 
     }
+
+    public String obtenerInformacion() {
+        return "Código: " + getCodigo() + "\nNombre: " + getNombreMateria() + "\nCréditos: " + getCredito();
+    }
 }
