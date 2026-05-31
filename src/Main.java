@@ -14,9 +14,9 @@ public class Main {
             System.out.println("|| 3. Registrar Materia                ||");
             System.out.println("|| 4. Asignar materia a estudiante     ||");
             System.out.println("|| 5. Registrar calificacion           ||");
-            System.out.println("|| 6. Mostrar estudiantes              ||");
-            System.out.println("|| 7. Mostrar materias                 ||");
-            System.out.println("|| 8. Mostrar profesores               ||");
+            System.out.println("|| 6. Buscar estudiante                ||");
+            System.out.println("|| 7. Mostrar estudiantes              ||");
+            System.out.println("|| 8. Mostrar materias                 ||");
             System.out.println("|| 9. Mostrar reporte de promedios     ||");
             System.out.println("|| 10. Salir                           ||");
             System.out.println("|| ----------------------------------- ||\n");
@@ -43,13 +43,13 @@ public class Main {
                         SistemaAcademico.RegistrarCalif();
                         break;
                     case 6:
-                        SistemaAcademico.mostrarEstudiantes(); 
+                        SistemaAcademico.buscarEstudiante();
                         break;
                     case 7: 
-                        SistemaAcademico.mostrarMaterias(); 
+                        SistemaAcademico.mostrarEstudiantes();
                         break;
                     case 8:
-                        SistemaAcademico.mostrarProfesores();
+                        SistemaAcademico.mostrarMaterias();
                         break;
                     case 9: 
                         SistemaAcademico.MostrarReportePromedio();

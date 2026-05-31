@@ -8,7 +8,7 @@ public class SistemaAcademico {
 
     // 1. Registrar estudiante
     public static void registrarEstudiante() {
-        System.out.println("--- REGISTRAR NUEVO ESTUDIANTE ---\n");
+        System.out.println("\n--- REGISTRAR NUEVO ESTUDIANTE ---\n");
         System.out.print("Matricula: ");
         String Matricula = sc.nextLine();
 
@@ -64,10 +64,9 @@ public class SistemaAcademico {
 
     // 3. Registrar materia
     public static void registrarMateria() {
-        System.out.println("--- REGISTRAR NUEVA MATERIA ---\n");
+        System.out.println("\n--- REGISTRAR NUEVA MATERIA ---\n");
         System.out.print("Codigo: ");
         String codigo = sc.nextLine();
-        sc.nextLine(); 
         System.out.print("Nombre de la materia: ");
         String NombreMateria = sc.nextLine();
         System.out.print("Cantidad de creditos: ");
@@ -82,7 +81,7 @@ public class SistemaAcademico {
 
     // 4. Asignar materia
     public static void AsignarMateria(){
-        System.out.println("--- ASIGNAR UNA MATERIA ---\n");
+        System.out.println("\n--- ASIGNAR UNA MATERIA ---\n");
         System.out.print("Ingrese la matricula del estudiante: ");
         String Matricula = sc.nextLine();
 
@@ -123,7 +122,7 @@ public class SistemaAcademico {
     // 5. Registrar calificaciones
 
     public static void RegistrarCalif(){
-        System.out.println("--- REGISTRAR CALIFICACIONES ---\n");
+        System.out.println("\n--- REGISTRAR CALIFICACIONES ---\n");
         System.out.print("Ingrese la matricula del estuddiante: ");
         String Matricula = sc.nextLine();
 
@@ -156,19 +155,36 @@ public class SistemaAcademico {
         System.out.println("SU CALIFICACION NO FUE REGISTRADA CON EXITO! :(...");
     }
 
-    // 6. Mostrar estudiantes
+    // 6. Buscar estudiantes
+    public static void buscarEstudiante(){
+        System.out.println("\n--- BUSCAR ESTUDIANTE ---\n");
+        System.out.print("INGRESE LA MATRIUCLA ");
+        String matricula = sc.nextLine();
+
+        System.out.println("\n================================");
+        System.out.println("RESULTADO: ");
+        for (Estudiantes est : listaEstudiantes) {
+            if (est.getMatricula().equalsIgnoreCase(matricula)) {
+                System.out.println(est.MostrarInformacion());
+                return;
+            }
+        }
+
+        System.out.println("Estudiante no encontrado.");
+    }
+    // 7. Mostrar Estudiantes
     public static void mostrarEstudiantes() {
         System.out.println("\n--- LISTA DE ESTUDIANTES ---");
-        if (listaEstudiantes.isEmpty()) {
-            System.out.println("NO HAY ESTUDIANTES REGISTRADOS.");
+        if (listaProfesores.isEmpty()) {
+            System.out.println("NO HAY PROFESORES REGISTRADOS.");
             return;
         }
-        for (Estudiantes e : listaEstudiantes) {
-            System.out.println(e.MostrarInformacion()); 
+        for (Estudiantes est : listaEstudiantes) {
+            System.out.println(est.MostrarInformacion());
         }
     }
 
-    // 7. Mostrar materias
+    // 8. Mostrar materias
     public static void mostrarMaterias() {
         System.out.println("\n--- LISTA DE MATERIAS ---");
         if (listaMaterias.isEmpty()) {
@@ -177,23 +193,11 @@ public class SistemaAcademico {
         }
         for (materia m : listaMaterias) { 
             System.out.println(m.obtenerInformacion());
-        }
-    }
-
-    // 8. Mostrar profesores
-    public static void mostrarProfesores() {
-        System.out.println("\n--- LISTA DE PROFESORES ---");
-        if (listaProfesores.isEmpty()) {
-            System.out.println("NO HAY PROFESORES REGISTRADOS.");
-            return;
-        }
-        for (Profesores p : listaProfesores) {
-            System.out.println(p.obtenerInformacion());
+            System.out.println("\n================================");
         }
     }
 
     // 9. Mostrar reporte de promedios
-
     public static void MostrarReportePromedio(){
         if(listaEstudiantes.isEmpty()){
             System.out.println("NO HAY ESTUDIANTES REGISTRADOS...");

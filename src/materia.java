@@ -47,6 +47,6 @@ public class materia {
     }
 
     public String obtenerInformacion() {
-        return "Código: " + getCodigo() + "\nNombre: " + getNombreMateria() + "\nCréditos: " + getCredito();
+        return "|Código: " + getCodigo() + "\n| Nombre: " + getNombreMateria() + "\n| Créditos: " + getCredito();
     }
 }
