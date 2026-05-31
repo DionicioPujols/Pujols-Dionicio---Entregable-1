@@ -82,9 +82,7 @@ public class SistemaAcademico {
 
     // 4. Asignar materia
     public static void AsignarMateria(){
-        System.out.println("\n|| =================================== ||");
-        System.out.println("||    ASIGNAR MATERIAS A ESTUDIANTES   ||");
-        System.out.println("|| =================================== ||\n");
+        System.out.println("--- ASIGNAR UNA MATERIA ---\n");
         System.out.print("Ingrese la matricula del estudiante: ");
         String Matricula = sc.nextLine();
 
@@ -122,12 +120,10 @@ public class SistemaAcademico {
         System.out.println("MATERIA ASIGNADA.");
     } 
 
-    //5. Registrar calificaciones
+    // 5. Registrar calificaciones
 
     public static void RegistrarCalif(){
-        System.out.println("\n|| =================================== ||");
-        System.out.println("||       REGISTRAR CALIFICACIONES      ||");
-        System.out.println("|| =================================== ||\n");
+        System.out.println("--- REGISTRAR CALIFICACIONES ---\n");
         System.out.print("Ingrese la matricula del estuddiante: ");
         String Matricula = sc.nextLine();
 
@@ -193,6 +189,46 @@ public class SistemaAcademico {
         }
         for (Profesores p : listaProfesores) {
             System.out.println(p.obtenerInformacion());
+        }
+    }
+
+    // 9. Mostrar reporte de promedios
+
+    public static void MostrarReportePromedio(){
+        if(listaEstudiantes.isEmpty()){
+            System.out.println("NO HAY ESTUDIANTES REGISTRADOS...");
+            return;
+        }
+
+        System.out.println("\n--- REPORTE DE PROMEDIOS ---");
+        for(Estudiantes est : listaEstudiantes){
+            System.out.println("\n=================================================");
+            System.out.println("Estudiante: "+ est.getNombre() + " " + est.getApellido());
+            System.out.println("===================================================");
+            System.out.printf("%-25s %s%n","Materia", "Calificación");
+
+            double Suma = 0;
+            int TotalCreditos = 0;
+
+            for (materia mat : est.getMaterias()) {
+                System.out.printf("%-25s %.2f%n", mat.getNombreMateria(), mat.getCalificacion());
+
+                Suma += mat.getCalificacion() * mat.getCredito();
+                TotalCreditos += mat.getCredito();
+            }
+            double promedio = 0;
+            if(TotalCreditos > 0){
+                promedio = Suma / TotalCreditos;
+            }
+            System.out.println("|| =============================================== ||");
+            System.out.printf("El promedio es: %.2f%n", promedio);
+
+            if(promedio >= 70){
+                System.out.println("Usted esta: Aprobado");
+                
+            }else{
+                System.out.println("Usted esta: Reprobado");
+            }
         }
     }
 }

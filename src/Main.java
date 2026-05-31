@@ -52,7 +52,7 @@ public class Main {
                         SistemaAcademico.mostrarProfesores();
                         break;
                     case 9: 
-
+                        SistemaAcademico.MostrarReportePromedio();
                         break;
                     case 10: 
                         System.out.println("Saliendo del sistema...");
