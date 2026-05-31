@@ -4,7 +4,7 @@
 Dionicio Pujols
 
 ## 🆔 Matrícula
-[Tu Matrícula Aquí]
+1000-5331
 
 ## 📝 Descripción del Proyecto
 Una institución académica necesita un sistema para administrar la información de sus estudiantes y materias. Esta aplicación de consola desarrollada en Java permite registrar estudiantes, profesores y materias; asignar materias a estudiantes; registrar calificaciones; realizar búsquedas; y mostrar reportes básicos académicos mediante un menú interactivo.
